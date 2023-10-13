@@ -1,0 +1,19 @@
+---
+
+- name: copy file
+  copy:
+    src: artifact.tar.gz
+    dest: ~/artifact.tar.gz
+    backup: yes
+
+- name: extract zip file
+  shell: | 
+    tar -zxvf artifact.tar.gz
+
+- name: install node module
+  shell: |
+    npm install
+
+- name: Restart node
+  shell: |
+    pm2 start npm -- start
