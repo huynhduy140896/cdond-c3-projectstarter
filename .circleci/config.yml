@@ -358,7 +358,7 @@ jobs:
             echo "========="
             for stack in "${STACKS[@]}"
             do
-                if [[ $stack != *"${OldWorkflowID}"*  && $stack != "InitialStack"  ]] 
+                if [[ $stack != *"${CIRCLE_WORKFLOW_ID}"*  && $stack != "InitialStack"  ]] 
                 then
                     echo $stack
                     aws cloudformation delete-stack --stack-name "$stack"
